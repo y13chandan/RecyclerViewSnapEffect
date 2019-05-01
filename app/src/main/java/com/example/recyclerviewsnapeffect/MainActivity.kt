@@ -14,13 +14,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         rvSnap = findViewById(R.id.rv_snap)
         mAdapter = ImageAdapter(this)
-        initView()
+        initViewLinearSnapHelper()
     }
 
     private fun initView() {
         val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this, LinearLayout.HORIZONTAL, false)
         rvSnap.layoutManager = linearLayoutManager
         val snapHelper:SnapHelper = PagerSnapHelper()
+        snapHelper.attachToRecyclerView(rvSnap)
+        rvSnap.adapter = mAdapter
+    }
+
+    private fun initViewLinearSnapHelper() {
+        val linearLayoutManager:LinearLayoutManager = LinearLayoutManager(this, LinearLayout.HORIZONTAL, false)
+        rvSnap.layoutManager = linearLayoutManager
+        val snapHelper:SnapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(rvSnap)
         rvSnap.adapter = mAdapter
     }

@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         rvSnap = findViewById(R.id.rv_snap)
         mAdapter = ImageAdapter(this)
-        initViewLinearSnapHelper()
+        initView()
     }
 
     private fun initView() {
